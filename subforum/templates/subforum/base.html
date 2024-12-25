@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SubForum</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/templatemo-topic-listing.css" rel="stylesheet">
+        
+        <style>
+            .file-list {
+                size: 10px;
+                margin-top: 10px;
+                list-style: none;
+                padding: 0;
+            }
+            .file-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+            .file-list .spinner {
+                margin-left: 10px;
+                width: 1rem;
+                height: 1rem;
+                border: 2px solid #f3f3f3;
+                border-top: 2px solid #3498db;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <i class="fa fa-paperclip"></i>
+                        <span>SubForum</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/">Dashboard</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#section_4">FAQs</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#umc">About UMC</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block me-2">
+                            <a href="/dashboard/" class="navbar-icon fa fa-user smoothscroll"></a>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <div class="d-none d-lg-block">
+                                <a href="/logout/" class="navbar-icon fa fa-sign-out smoothscroll"></a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+
+            {% block content %}{% endblock content %}
+
+
+
+        </main>
+
+        <footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="fa fa-paperclip"></i>
+                            <span>SubForum</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="/" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="/#section_4" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="/#umc" class="site-footer-link">UMC</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">English</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div>
+
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2024, All rights reserved.
+                        <br><br>Developer: <a rel="follow" href="https://rabahdj2002.github.io/" target="_blank">Rabah Djebbes</a> with much love.</p>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/jquery.min.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/bootstrap.bundle.min.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/jquery.sticky.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/click-scroll.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/custom.js"></script>
+
+        <script>
+            const fileInput = document.getElementById('file');
+            const fileList = document.getElementById('fileList');
+
+            fileInput.addEventListener('change', () => {
+                fileList.innerHTML = ''; // Clear the list
+                Array.from(fileInput.files).forEach(file => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = file.name;
+
+                    const spinner = document.createElement('div');
+                    spinner.classList.add('spinner');
+
+                    listItem.appendChild(spinner);
+                    fileList.appendChild(listItem);
+
+                    // Simulate upload delay (remove spinner after 2 seconds)
+                    setTimeout(() => {
+                        listItem.removeChild(spinner);
+                    }, 2000);
+                });
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,130 @@
+{% extends "subforum/base.html" %}
+
+{% block content %}
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-5 col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Homepage</a></li>
+
+                            <li class="breadcrumb-item active" aria-current="page">Project Submission</li>
+                        </ol>
+                    </nav>
+
+                    <h2 class="text-white">Submit Project :</h2>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <section class="section-padding section-bg">
+        <div class="container">
+            <form action="/add_new/" method="post" class="custom-form contact-form" role="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <h3 class="mb-4 pb-2">Your Details :</h3>
+                        {% if error_message %}
+                            <div class="alert alert-danger">
+                                {{ error_message }}
+                            </div>
+                        {% elif success_message %}
+                            <div class="alert alert-success">
+                                {{ success_message }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="fname" value="{{ first_name }}" id="fname" class="form-control" placeholder="First Name">
+                                        
+                                        <label for="floatingInput">First Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="lname" value="{{ last_name }}" id="lname" class="form-control" placeholder="Last Name">
+                                        
+                                        <label for="floatingInput">Last Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-12"> 
+                                    <div class="form-floating">
+                                        <input type="email" name="email" value="{{ email }}" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address">
+                                        
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="student_id" value="{{ student_id }}" id="student_id" class="form-control" placeholder="Student ID">
+                                        
+                                        <label for="floatingInput">Student ID</label>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <br>
+
+                                <div class="col-lg-12 col-12">
+                                    <h3 class="mb-4 pb-2">Your Project's Details :</h3>
+                                </div>
+
+                                <div class="col-lg-12 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="title" value="{{ project_title }}" id="title" class="form-control" placeholder="Title">
+                                        
+                                        <label for="floatingInput">Title</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input type="text" name="url" value="{{ url }}" id="url" class="form-control" placeholder="Link">
+                                        
+                                        <label for="floatingInput">Link (optional)</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <textarea class="form-control" value="{{ files }}" id="message" name="message" placeholder="Tell me about the project"></textarea>
+                                        
+                                        <label for="floatingTextarea">Tell me about the project</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Submit</button>
+                                </div>
+
+                            </div>
+                        
+                    </div>
+
+                    <div class=" form-floating col-lg-5 col-12 mx-auto mt-5 mt-lg-0">
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Upload Project Files (.zip format)</label>
+                            <div class="upload-container d-flex align-items-center justify-content-center border border-dashed rounded p-3">
+                                <input type="file" class="form-control d-none" id="file" name="file" accept=".zip, .rar" required>
+                                <label for="file" class="d-flex flex-column align-items-center">
+                                    <i class="fa fa-upload fa-2x mb-2"></i>
+                                    <span>Click or drag files here to upload</span>
+                                </label>
+                            </div>
+                        </div>
+                        <ul id="fileList" class="file-list"></ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

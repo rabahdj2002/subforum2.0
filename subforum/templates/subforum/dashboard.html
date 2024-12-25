@@ -1,0 +1,70 @@
+{% extends "subforum/base.html" %}
+
+{% block content %}
+<header class="site-header d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-5 col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Homepage</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+
+                <h2 class="text-white">Dashboard</h2>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center">
+                {% if user.is_staff %}
+                    <h3 class="mb-4">Projects Count: {{ projects_count }}</h3>
+                    <p>You are viewing all projects (Teacher View).</p>
+                {% else %}
+                    <h3 class="mb-4">Your Project</h3>
+                    {% if not projects_count %}
+                        <p>No project was found, please add one.</p>
+                        <a href="/add_new/" class="btn custom-btn">Add New Project</a>
+                    {% endif %}
+                {% endif %}
+
+                
+            </div>
+
+            
+            <div class="col-lg-8 col-12 mt-3 mx-auto">
+                {% for project in projects %}
+                <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                    <div class="d-flex">
+                        <img src="https://img.freepik.com/free-vector/static-website-concept-illustration_114360-29615.jpg" class="custom-block-image img-fluid" alt="">
+
+                        <div class="custom-block-topics-listing-info d-flex">
+                            <div>
+                                <h5 class="mb-1">{{ project.title }}</h5>
+                                <span class="badge bg-design ms-auto mb-2">By {{ project.first_name }} {{ project.last_name }}</span>
+                                <span {% if project.status == "Pending" %}class="badge bg-danger ms-auto mb-2"{% else %}class="badge bg-success ms-auto mb-2"{% endif %}>{{ project.status }}</span>
+                                <span class="mb-2"></span>
+                                <br>
+                                <p class="mb-0">{{ project.description }}</p>
+                                <a href="/project/{{ project.id }}/" class="btn custom-btn mt-3 mt-lg-4">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock content %}

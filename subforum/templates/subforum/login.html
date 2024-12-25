@@ -1,0 +1,107 @@
+
+{% extends "subforum/base.html" %}
+
+{% block content %}
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-12 mx-auto">
+                <h1 class="text-white text-center">LOGIN</h1>
+
+                <h6 class="text-center">Enter your credentials to start</h6>
+
+                {% if error_message %}
+                    <div class="alert alert-danger">
+                        {{ error_message }}
+                    </div>
+                {% elif success_message %}
+                    <div class="alert alert-success">
+                        {{ success_message }}
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="featured-section">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                <div class="custom-block bg-white shadow-lg">
+                    <div class="d-flex">
+                        <div>
+                            <h5 class="mb-2">Teacher</h5>
+
+                            <p class="mb-0">Enter your teacher credentials to be able to grade projects.</p>
+                        </div>
+
+                        <span class="badge bg-design rounded-pill ms-auto">&#128509;</span>
+                    </div>
+
+                    <br>
+                    <form action="/login/teacher/" method="post" class="custom-form contact-form">
+                        {% csrf_token %}
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="form-floating">
+                                <input type="email" name="temail" id="temail" class="form-control" placeholder="Email">
+                                
+                                <label for="floatingInput">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="form-floating">
+                                <input type="password" name="tpassword" id="tpassword" class="form-control" placeholder="Password">
+                                
+                                <label for="floatingInput">Password</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="form-control">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <div class="custom-block custom-block-overlay">
+                    <div class="d-flex flex-column h-100">
+                        <div class="custom-block-overlay-text d-flex">
+                            <div>
+                                <h5 class="text-white mb-2">Students</h5>
+
+                                <p class="text-white">Enter your student credentials to be able to submit projects and view your results.</p>
+                                
+                                <form action="/login/student/" method="post" class="custom-form contact-form" role="form">
+                                    {% csrf_token %}
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="form-floating">
+                                            <input type="email" name="semail" id="semail" class="form-control" placeholder="Email">
+                                            
+                                            <label for="floatingInput">Email (ex: rabah.djebbes@gmail.com)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="form-floating">
+                                            <input type="password" name="spassword" id="spassword" class="form-control" placeholder="Student ID">
+                                            
+                                            <label for="floatingInput">Student ID (ex: 202034032186)</label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="form-control">Submit</button>
+                                </form>
+                            </div>
+
+                            <span class="badge bg-finance rounded-pill ms-auto">&#128511;</span>
+                        </div>
+                        <div class="section-overlay"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock content %}
