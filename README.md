@@ -25,10 +25,8 @@ And here is the GitHub repository: [SubForum 2.0 GitHub Repository](https://gith
 - **User Registration & Login**: Allows students and teachers to register, log in, and access their respective dashboards.
 - **Project Submission**: Students can submit their project details, including descriptions, files, and links.
 - **Admin Dashboard**: Teachers can view and manage project submissions.
-- **Search and Filter**: Admin can search and filter submissions by project name or student.
 - **Project Detail View**: Teachers can view detailed information about the submitted projects.
 - **Responsive UI**: Built to be responsive across different devices, ensuring usability on mobile, tablet, and desktop.
-- **Real-time Updates**: Using JavaScript and Django, project details are updated dynamically without page reloads.
 
 ## Technologies Used
 - **Backend**: Django (Python)
