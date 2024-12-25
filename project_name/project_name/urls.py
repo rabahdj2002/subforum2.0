@@ -1,5 +1,5 @@
 """
-URL configuration for subforum project.
+URL configuration for project_name project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,20 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-    path('add_new/', views.addNewProject, name='addNewProject'),
-    
-    path('login/', views.login_user, name='login'),
-    path('logout/', views.logout_user, name='logout'),
-    path('login/student/', views.loginStudent, name='loginStudent'),
-    path('login/teacher/', views.loginTeacher, name='loginTeacher'),
-    
-    
-    path('project/<int:id>/', views.project_detail, name='project_detail'),
-    
 ]
