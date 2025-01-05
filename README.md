@@ -21,6 +21,18 @@ You can explore the project at: [SubForum 2.0](https://subforum.pythonanywhere.c
 
 And here is the GitHub repository: [SubForum 2.0 GitHub Repository](https://github.com/rabahdj2002/subforum2.0)
 
+## Demo Credentials
+
+You can use the following credentials to log in and explore the platform:
+
+### Teacher Login
+- **Username:** `kamel.zeltni@gmail.com`
+- **Password:** `teacher.zk`
+
+### Test Student Login
+- **Username:** `rabahdjebbes6@gmail.com`
+- **Password:** `202034032186`
+
 ## Features
 - **User Registration & Login**: Allows students and teachers to register, log in, and access their respective dashboards.
 - **Project Submission**: Students can submit their project details, including descriptions, files, and links.
