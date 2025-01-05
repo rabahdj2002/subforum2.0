@@ -66,35 +66,41 @@
             </div>
 
             <div class="col-lg-6 col-12">
-                <div class="custom-block custom-block-overlay">
+                <div class="custom-block custom-block-overlay" style="min-height: 460px;">
                     <div class="d-flex flex-column h-100">
-                        <div class="custom-block-overlay-text d-flex">
-                            <div>
-                                <h5 class="text-white mb-2">Students</h5>
-
-                                <p class="text-white">Enter your student credentials to be able to submit projects and view your results.</p>
+                        <div class="custom-block-overlay-text">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="text-white mb-2">Students</h5>
+                                    <p class="text-white">Enter your student credentials to be able to submit projects and view your results.</p>
+                                    
+                                </div>
                                 
-                                <form action="/login/student/" method="post" class="custom-form contact-form" role="form">
-                                    {% csrf_token %}
-                                    <div class="col-lg-12 col-md-12 col-12">
-                                        <div class="form-floating">
-                                            <input type="email" name="semail" id="semail" class="form-control" placeholder="Email">
-                                            
-                                            <label for="floatingInput">Email (ex: rabah.djebbes@gmail.com)</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-12">
-                                        <div class="form-floating">
-                                            <input type="password" name="spassword" id="spassword" class="form-control" placeholder="Student ID">
-                                            
-                                            <label for="floatingInput">Student ID (ex: 202034032186)</label>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="form-control">Submit</button>
-                                </form>
+                                <span class="badge bg-finance rounded-pill ms-auto">&#128511;</span>
                             </div>
 
-                            <span class="badge bg-finance rounded-pill ms-auto">&#128511;</span>
+                            <br>
+
+                            <form action="/login/student/" method="post" class="custom-form contact-form" role="form">
+                                {% csrf_token %}
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-floating">
+                                        <input type="email" name="semail" id="semail" class="form-control" placeholder="Email">
+                                        
+                                        <label for="floatingInput">Email (ex: rabah.djebbes@gmail.com)</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-floating">
+                                        <input type="password" name="spassword" id="spassword" class="form-control" placeholder="Student ID">
+                                        
+                                        <label for="floatingInput">Student ID (ex: 202034032186)</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="form-control">Submit</button>
+                            </form>
+
+                            
                         </div>
                         <div class="section-overlay"></div>
                     </div>
